@@ -247,6 +247,47 @@
     box-shadow: 0 4px 14px -2px rgba(201,168,106,0.4);
   }
   .popup-submit:hover { filter: brightness(1.05); transform: translateY(-1px); }
+
+  /* Cookie banner */
+  .cookie-banner {
+    position: fixed; bottom: 16px; left: 16px; right: 16px;
+    max-width: 640px; margin: 0 auto;
+    background: var(--navy); color: #fff;
+    padding: 18px 22px;
+    border-radius: 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    border: 1px solid rgba(201,168,106,0.3);
+    z-index: 999;
+    display: none;
+    align-items: center;
+    gap: 16px;
+    animation: cookieIn 0.4s ease;
+  }
+  .cookie-banner.show { display: flex; }
+  @keyframes cookieIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .cookie-text {
+    flex: 1; font-size: 13px; line-height: 1.5;
+    color: rgba(255,255,255,0.85);
+  }
+  .cookie-text a {
+    color: var(--cream); text-decoration: underline;
+  }
+  .cookie-accept {
+    background: var(--gold); color: var(--navy);
+    border: none; border-radius: 4px;
+    padding: 10px 20px;
+    font-family: 'Inter', sans-serif; font-weight: 600; font-size: 13px;
+    cursor: pointer; white-space: nowrap;
+    transition: filter 0.2s;
+  }
+  .cookie-accept:hover { filter: brightness(1.08); }
+  @media (max-width: 600px) {
+    .cookie-banner { flex-direction: column; align-items: stretch; padding: 16px 18px; }
+    .cookie-accept { width: 100%; padding: 12px; }
+  }
   @media (max-width: 600px) {
     article { padding: 48px 20px 40px; }
     .hero { padding: 48px 20px; }
@@ -531,11 +572,18 @@
       <input type="tel" name="Телефон" placeholder="Телефон" required autocomplete="tel">
       <label class="popup-consent">
         <input type="checkbox" required>
-        <span>Согласен(на) на обработку персональных данных и получение сообщений на указанный номер</span>
+        <span>Согласен(на) на <a href="https://finmari.getcourse.ru/privacypolicy" target="_blank" rel="noopener" style="color: var(--gold-deep); text-decoration: underline;">обработку персональных данных</a> и получение сообщений на указанный номер</span>
       </label>
       <button type="submit" class="popup-submit">Отправить заявку</button>
     </form>
   </div>
+</div>
+
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-text">
+    Мы используем cookie-файлы, чтобы сайт работал корректно и для аналитики посещений. Продолжая просмотр, вы соглашаетесь с <a href="https://finmari.getcourse.ru/privacypolicy" target="_blank" rel="noopener">политикой обработки персональных данных</a>
+  </div>
+  <button type="button" class="cookie-accept" onclick="acceptCookies()">Принять</button>
 </div>
 
 <script>
@@ -550,6 +598,21 @@
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closePopup();
   });
+
+  // Cookie banner
+  function acceptCookies() {
+    try { localStorage.setItem('cookies_accepted', '1'); } catch(e) {}
+    document.getElementById('cookieBanner').classList.remove('show');
+  }
+  (function() {
+    let accepted = false;
+    try { accepted = localStorage.getItem('cookies_accepted') === '1'; } catch(e) {}
+    if (!accepted) {
+      setTimeout(() => {
+        document.getElementById('cookieBanner').classList.add('show');
+      }, 800);
+    }
+  })();
 </script>
 
 </body>
