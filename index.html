@@ -248,6 +248,54 @@
   }
   .popup-submit:hover { filter: brightness(1.05); transform: translateY(-1px); }
 
+  /* Footer */
+  .footer {
+    background: #0A1A2E;
+    color: rgba(255,255,255,0.7);
+    padding: 56px 24px 48px;
+    border-top: 1px solid rgba(201,168,106,0.15);
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; flex-wrap: wrap; gap: 40px 60px;
+    align-items: flex-start; justify-content: space-between;
+  }
+  .footer-brand .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .footer-brand .footer-info {
+    font-size: 13px; line-height: 1.7;
+    color: rgba(255,255,255,0.55);
+  }
+  .footer-brand .footer-info a {
+    color: rgba(255,255,255,0.55); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-brand .footer-info a:hover { color: var(--gold); }
+  .footer-links {
+    display: flex; gap: 36px; flex-wrap: wrap;
+    align-self: center;
+  }
+  .footer-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  @media (max-width: 700px) {
+    .footer { padding: 40px 20px 32px; }
+    .footer-inner { gap: 28px; flex-direction: column; }
+    .footer-links { gap: 16px 28px; }
+    .footer-brand .footer-logo { font-size: 20px; margin-bottom: 16px; }
+  }
+
   /* Cookie banner */
   .cookie-banner {
     position: fixed; bottom: 16px; left: 16px; right: 16px;
@@ -578,6 +626,22 @@
     </form>
   </div>
 </div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">Finmary</div>
+      <div class="footer-info">
+        ООО «УДАЧА» · ИНН 2635800363<br>
+        Email: <a href="mailto:info@finmary.ru">info@finmary.ru</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="https://finmari.getcourse.ru/privacypolicy" target="_blank" rel="noopener">Политика конфиденциальности</a>
+      <a href="https://finmari.getcourse.ru/legal" target="_blank" rel="noopener">Публичная оферта</a>
+    </div>
+  </div>
+</footer>
 
 <div class="cookie-banner" id="cookieBanner">
   <div class="cookie-text">
