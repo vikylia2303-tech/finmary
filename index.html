@@ -106,11 +106,11 @@
   }
   .chat-avatar {
     width: 42px; height: 42px; border-radius: 50%;
-    background: linear-gradient(135deg, #5EB5F7 0%, #2D88C8 100%);
-    display: flex; align-items: center; justify-content: center;
-    color: #fff; font-weight: 600; font-size: 18px;
-    flex-shrink: 0;
-    letter-spacing: -0.02em;
+    overflow: hidden; flex-shrink: 0;
+    background: #2A3B5C;
+  }
+  .chat-avatar img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
   }
   .chat-info { flex: 1; min-width: 0; }
   .chat-name {
@@ -510,7 +510,7 @@
 
 <div class="chat-card">
   <div class="chat-header">
-    <div class="chat-avatar">А</div>
+    <div class="chat-avatar"><img src="andrey.jpg" alt="Андрей"></div>
     <div class="chat-info">
       <div class="chat-name">Андрей</div>
       <div class="chat-status"><span class="dot"></span>был в сети в 23:15</div>
