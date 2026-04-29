@@ -808,6 +808,52 @@
     if (e.key === 'Escape') closePopup();
   });
 
+  // ===== Автосбор UTM-меток и источника =====
+  (function() {
+    var TRACK_KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','yclid','gclid','ym_uid'];
+    var params = new URLSearchParams(location.search);
+    var stored = {};
+    try { stored = JSON.parse(sessionStorage.getItem('lead_meta') || '{}'); } catch(e) {}
+
+    // Если в URL есть метки — это новый визит с рекламы. Перезаписываем.
+    var hasNewParams = TRACK_KEYS.some(function(k){ return params.get(k); });
+    if (hasNewParams || !stored.first_url) {
+      stored = {
+        first_url: location.href,
+        referrer: document.referrer || '(прямой заход)',
+        first_visit: new Date().toLocaleString('ru-RU', {timeZone: 'Europe/Moscow'})
+      };
+      TRACK_KEYS.forEach(function(k){
+        var v = params.get(k);
+        if (v) stored[k] = v;
+      });
+      try { sessionStorage.setItem('lead_meta', JSON.stringify(stored)); } catch(e) {}
+    }
+
+    // При сабмите формы — добавить скрытые поля
+    var form = document.getElementById('leadForm');
+    if (form) {
+      form.addEventListener('submit', function() {
+        Object.keys(stored).forEach(function(k){
+          if (form.querySelector('[name="'+k+'"]')) return; // не дублировать
+          var inp = document.createElement('input');
+          inp.type = 'hidden';
+          inp.name = k;
+          inp.value = stored[k];
+          form.appendChild(inp);
+        });
+        // Время отправки
+        if (!form.querySelector('[name="Время заявки"]')) {
+          var t = document.createElement('input');
+          t.type = 'hidden';
+          t.name = 'Время заявки';
+          t.value = new Date().toLocaleString('ru-RU', {timeZone: 'Europe/Moscow'});
+          form.appendChild(t);
+        }
+      });
+    }
+  })();
+
   // Cookie banner
   function acceptCookies() {
     try { localStorage.setItem('cookies_accepted', '1'); } catch(e) {}
