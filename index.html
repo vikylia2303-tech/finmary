@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Выручка растёт. Денег нет. Это не кризис — это управленческая слепота — Finmary</title>
+<meta name="description" content="Бесплатная 30-минутная диагностика финансов от Марии Заруцкой. Без курса. Без найма финдиректора. За один разговор — письменное резюме с найденными утечками.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1F3B;
+    --navy-deep: #111827;
+    --navy-soft: #1E3A5F;
+    --cream: #F4E4BC;
+    --paper: #FAF7F2;
+    --paper-soft: #F0EBE2;
+    --ink: #1A1A1A;
+    --ink-soft: #4B4B4B;
+    --grey: #6B7280;
+    --gold: #C9A86A;
+    --gold-deep: #A88848;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .serif { font-family: 'Playfair Display', Georgia, serif; }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: var(--navy);
+    color: #fff;
+    padding: 56px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .hero-eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    margin-bottom: 18px;
+  }
+  .hero h1 .highlight { color: var(--cream); font-style: italic; }
+  .hero-sub {
+    font-size: clamp(16px, 1.5vw, 18px);
+    line-height: 1.5;
+    color: rgba(255,255,255,0.75);
+    font-weight: 300;
+    max-width: 640px;
+    margin-bottom: 32px;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 28px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding: 18px 0 0;
+    flex-wrap: wrap;
+  }
+  .hero-meta span strong { color: rgba(255,255,255,0.9); font-weight: 500; }
+
+  .hero-image {
+    margin: 0 0 40px;
+  }
+  .hero-image img {
+    width: 100%;
+    display: block;
+    border-radius: 2px;
+  }
+
+  /* ===== ARTICLE ===== */
+  article {
+    background: var(--paper);
+    padding: 56px 24px 60px;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  article p {
+    margin-bottom: 24px;
+    color: var(--ink-soft);
+  }
+  article p.lead {
+    font-size: 22px;
+    line-height: 1.55;
+    color: var(--ink);
+    font-weight: 400;
+    margin-bottom: 36px;
+  }
+
+  article h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: clamp(28px, 3.5vw, 38px);
+    line-height: 1.2;
+    color: var(--navy);
+    margin: 72px 0 28px;
+    letter-spacing: -0.01em;
+  }
+  article h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--navy);
+    margin: 40px 0 16px;
+  }
+
+  article blockquote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--navy);
+    border-left: 3px solid var(--gold);
+    padding: 8px 0 8px 28px;
+    margin: 36px 0;
+  }
+  article blockquote .author {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-size: 14px;
+    color: var(--grey);
+    margin-top: 12px;
+    font-weight: 500;
+  }
+
+  article ul {
+    margin: 0 0 28px 0;
+    padding-left: 0;
+    list-style: none;
+  }
+  article ul li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 14px;
+    color: var(--ink-soft);
+  }
+  article ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 14px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  /* Quote card (Andrey's message) */
+  .message-card {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 4px;
+    padding: 32px 36px;
+    margin: 40px 0;
+    font-size: 17px;
+    line-height: 1.6;
+    border-left: 3px solid var(--gold);
+  }
+  .message-card .from {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  /* Stats highlight */
+  .stat {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1;
+    margin: 8px 0;
+    letter-spacing: -0.02em;
+  }
+  .stat-block {
+    background: var(--paper-soft);
+    border-left: 3px solid var(--gold);
+    padding: 28px 32px;
+    margin: 40px 0;
+  }
+  .stat-block p { margin: 0; color: var(--ink); }
+
+  /* Author bio card */
+  .author-bio {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 36px;
+    align-items: start;
+    background: var(--paper-soft);
+    padding: 36px;
+    margin: 40px 0 24px;
+    border-left: 3px solid var(--gold);
+  }
+  .author-bio-photo {
+    width: 220px;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  .author-bio-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .author-bio-text .author-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .author-bio-text .author-title {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    font-weight: 500;
+    margin-bottom: 18px;
+  }
+  .author-bio-text p {
+    font-size: 16px;
+    line-height: 1.65;
+    margin-bottom: 14px;
+    color: var(--ink-soft);
+  }
+  .author-bio-text p:last-child { margin-bottom: 0; }
+  .author-credentials {
+    list-style: none;
+    padding: 16px 0 0;
+    margin: 16px 0 0 0;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    font-size: 13px;
+    color: var(--grey);
+  }
+  .author-credentials li {
+    padding: 0;
+    margin: 0;
+  }
+  .author-credentials li::before { display: none; }
+  .author-credentials li::after {
+    content: '·';
+    margin-left: 16px;
+    color: var(--gold);
+  }
+  .author-credentials li:last-child::after { display: none; }
+  @media (max-width: 600px) {
+    .author-bio {
+      grid-template-columns: 1fr;
+      padding: 24px;
+      gap: 24px;
+    }
+    .author-bio-photo { width: 100%; max-width: 280px; aspect-ratio: 4/5; }
+  }
+
+  /* Image blocks inside article */
+  .figure {
+    margin: 56px 0;
+  }
+  .figure img {
+    width: 100%;
+    display: block;
+    border-radius: 2px;
+  }
+  .figure figcaption {
+    font-size: 14px;
+    color: var(--grey);
+    padding: 16px 0 0;
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  /* CTA buttons */
+  .cta-block {
+    background: var(--navy);
+    color: #fff;
+    padding: 40px 36px;
+    margin: 56px 0;
+    text-align: center;
+    border-radius: 4px;
+  }
+  .cta-block.warning {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--navy);
+    padding: 28px 36px;
+  }
+  .cta-warning-icon {
+    color: var(--gold);
+    font-weight: 600;
+    margin-right: 8px;
+  }
+  .cta-text {
+    font-size: 16px;
+    margin-bottom: 24px;
+    color: rgba(255,255,255,0.8);
+  }
+  .cta-warning .cta-text { color: var(--ink-soft); margin-bottom: 0; }
+  .cta-button,
+  .finmary-article-wrap a.cta-button,
+  .finmary-article-wrap a.cta-button:link,
+  .finmary-article-wrap a.cta-button:visited,
+  .finmary-article-wrap a.cta-button:hover,
+  .finmary-article-wrap a.cta-button:active {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 14px;
+    background: linear-gradient(180deg, #D4B574 0%, #C9A86A 50%, #B89758 100%) !important;
+    color: #0B1F3B !important;
+    text-decoration: none !important;
+    padding: 20px 32px 20px 36px;
+    font-weight: 600 !important;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    border-radius: 4px;
+    box-shadow:
+      0 1px 0 0 rgba(255,255,255,0.4) inset,
+      0 -1px 0 0 rgba(0,0,0,0.08) inset,
+      0 6px 20px -4px rgba(201,168,106,0.45),
+      0 2px 6px -1px rgba(0,0,0,0.15);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.45) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+  .cta-button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+    box-shadow:
+      0 1px 0 0 rgba(255,255,255,0.5) inset,
+      0 -1px 0 0 rgba(0,0,0,0.08) inset,
+      0 12px 28px -6px rgba(201,168,106,0.55),
+      0 4px 10px -2px rgba(0,0,0,0.18);
+  }
+  .cta-button:hover::before { transform: translateX(100%); }
+  .cta-button:active { transform: translateY(0); }
+  .cta-button .arrow {
+    display: inline-flex;
+    width: 22px;
+    height: 22px;
+    align-items: center;
+    justify-content: center;
+    background: var(--navy);
+    border-radius: 50%;
+    color: var(--gold);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .cta-button:hover .arrow { transform: translateX(4px) scale(1.08); }
+  .cta-button .arrow svg { width: 11px; height: 11px; }
+  .cta-sub {
+    display: block;
+    margin-top: 14px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.02em;
+  }
+  .cta-block.warning .cta-sub { color: var(--grey); }
+  .cta-meta {
+    display: block;
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 20px;
+    line-height: 1.5;
+  }
+
+  /* Cases — three columns */
+  .cases {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin: 32px 0 40px;
+  }
+  .case {
+    background: var(--paper-soft);
+    padding: 28px 32px;
+    border-top: 2px solid var(--gold);
+  }
+  .case-head {
+    font-size: 14px;
+    color: var(--grey);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .case-result {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 12px 0;
+    line-height: 1.2;
+  }
+  .case p { margin-bottom: 8px; color: var(--ink-soft); font-size: 16px; }
+  .case .step { font-size: 14px; color: var(--ink); padding-top: 12px; border-top: 1px solid rgba(0,0,0,0.06); margin-top: 12px; }
+
+  /* Q&A block */
+  .qa { margin: 32px 0; }
+  .qa-item {
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding: 24px 0;
+  }
+  .qa-q {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .qa-a { color: var(--ink-soft); }
+
+  /* About / signature */
+  .signature-block {
+    background: var(--navy);
+    color: #fff;
+    padding: 60px 40px;
+    margin-top: 80px;
+    text-align: center;
+  }
+  .signature-block .sig-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+  .signature-block .sig-title {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.05em;
+  }
+
+  /* Final CTA */
+  .final-cta {
+    background: var(--navy);
+    padding: 80px 24px;
+    text-align: center;
+    color: #fff;
+  }
+  .final-cta h2 {
+    font-family: 'Playfair Display', serif;
+    color: #fff !important;
+    font-size: clamp(28px, 4vw, 42px);
+    margin: 0 0 24px !important;
+    line-height: 1.2;
+  }
+  .final-cta p {
+    color: rgba(255,255,255,0.75);
+    max-width: 560px;
+    margin: 0 auto 36px;
+  }
+
+  @media (max-width: 600px) {
+    body { font-size: 17px; }
+    .hero { padding-top: 56px; }
+    article { padding: 60px 20px 40px; }
+    .container { padding: 0; }
+    .message-card, .cta-block { padding: 24px 20px; }
+    .case { padding: 24px 20px; }
+    .signature-block { padding: 48px 24px; }
+    .hero-image { padding: 0 20px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Выручка растёт, а прибыль нет?<br><span class="highlight">Куда&nbsp;незаметно&nbsp;утекают&nbsp;от&nbsp;2&nbsp;млн&nbsp;₽&nbsp;в&nbsp;год</span></h1>
+    <p class="hero-sub">Решить проблему можно даже без найма финдиректора</p>
+    <div class="hero-meta">
+      <span><strong>Мария Заруцкая</strong></span>
+      <span>Время чтения · 9 мин</span>
+      <span>Для собственников бизнеса с оборотом от 10 млн ₽/мес</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ARTICLE ===== -->
+<article>
+<div class="container">
+
+<div class="hero-image">
+  <img src="images/01-hero.jpg" alt="Собственник за ноутбуком ночью смотрит в банковский дашборд">
+</div>
+
+<p class="lead">Это было в сентябре прошлого года. Андрей. Собственник производства. Восемь лет в деле. Выручка в апреле — пятнадцать миллионов. По всем внешним признакам — рост</p>
+
+<p>Он написал мне в 23:15. Не потому что искал курс или программу. Просто больше было некуда</p>
+
+<div class="message-card">
+  <div class="from">Сообщение в 23:15</div>
+  Мария, я в четвёртый раз за вечер смотрю в банк. Куда ушли полтора миллиона — не понимаю. Бухгалтер говорит, всё сходится. Менеджер говорит, загрузка рекордная. А я снова закрываю кассовый разрыв личными деньгами. Это нормально?
+</div>
+
+<p>Нет. Это не нормально. И это не про него — это про то, как устроена финансовая слепота в большинстве МСБ</p>
+
+<div class="stat-block">
+  <p>Я посчитала по 27 клиентам из производственной ниши за два года. Средний размер невидимой утечки —</p>
+  <span class="stat">220 000 ₽ в месяц</span>
+  <p>Это <strong>2,64 млн ₽ в год.</strong> Не «если не повезёт». Прямо сейчас, пока вы не видите картину</p>
+</div>
+
+<p>Если вы читаете это и узнаёте себя — выручка есть, а ощущения контроля нет — дочитайте до конца. Я объясню, почему так происходит, где именно в вашем бизнесе лежат потери и что с этим делать за 30 минут разговора</p>
+
+<p><strong>Не за месяц учёбы. Не за год внедрения. За 30 минут.</strong></p>
+
+<p>Если у вас бизнес с выручкой от 10 млн ₽ в месяц, а вы всё равно регулярно открываете банк и не понимаете, где прибыль, — проблема не в рынке и не в сезоне. Проблема в том, что вы не видите деньги целиком</p>
+
+<p>Вы видите куски: остаток на счёте, входящие оплаты, срочные платежи, слова бухгалтера, ощущения руководителей, обрывки из 1С. Но не видите главное: где именно у вас застревают деньги, что съедает маржу и почему при нормальной выручке вам всё равно тревожно</p>
+
+<p>Именно это мы разбираем на бесплатной диагностике за 30–40 минут. Без продающего созвона. Без покупки вслепую. Без менеджеров. В конце встречи вы получаете письменное резюме: где у вас вероятнее всего утекают деньги и какой первый шаг нужно сделать</p>
+
+<div class="cta-block">
+  <p class="cta-text"><span class="cta-warning-icon">⚠</span> Я провожу не больше 10 диагностик в месяц</p>
+  <a href="#zapis" class="cta-button">Узнать, где у меня утекают деньги <span class="arrow"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5"/></svg></span></a>
+  <span class="cta-sub">30–40 минут · бесплатно · с письменным резюме</span>
+</div>
+
+<h2>Кто проводит диагностику</h2>
+
+<div class="author-bio">
+  <div class="author-bio-photo">
+    <img src="images/maria.jpg" alt="Мария Заруцкая, основатель Академии Finmary">
+  </div>
+  <div class="author-bio-text">
+    <div class="author-name">Мария Заруцкая</div>
+    <div class="author-title">Основатель Академии Finmary</div>
+    <p>20 лет выстраиваю финансы в компаниях малого и среднего бизнеса: была финансовым директором в девелопменте, нефтесервисе, производстве, B2B, IT и медицине. Последние два года — частная практика</p>
+    <p>Через мои руки прошли 40+ компаний с выручкой от 300 до 1300 миллионов в год — производства, клиники, агентства</p>
+    <ul class="author-credentials">
+      <li>Финансовый аналитик</li>
+      <li>Главный бухгалтер 6-го уровня</li>
+      <li>Трекер Сколково</li>
+      <li>Финалист премии «Финансовый директор года»</li>
+    </ul>
+  </div>
+</div>
+
+<p>Я пишу эту статью не потому что хочу продать программу. Я пишу её потому, что каждый второй предприниматель, который приходит ко мне на диагностику, провёл такой же вечер, как Андрей. С банком, с чаем, с ощущением, что его обманывают — только он не понимает, кто именно</p>
+
+<p>За 30 минут разговора это видно. Я знаю, куда смотреть</p>
+
+<h2>Что говорят после диагностики</h2>
+
+<blockquote>
+  Я думала, что сложные таблицы — это про больших. На диагностике Мария за полчаса показала, какие три цифры я должна видеть каждый день — и я впервые с открытия студии понимаю, откуда берётся моя прибыль.
+  <span class="author">— владелица студии печати, Санкт-Петербург</span>
+</blockquote>
+
+<blockquote>
+  Пришёл со скепсисом. Ушёл с тремя конкретными шагами и пониманием, куда ушли полтора миллиона. Первый шаг сделал в тот же день.
+  <span class="author">— собственник агентства, Москва</span>
+</blockquote>
+
+<blockquote>
+  Ожидал продажу. Получил реальный разбор. Нашли дебиторку на 3,2 млн — и вернули за 18 дней.
+  <span class="author">— производство металлоконструкций, 34 человека</span>
+</blockquote>
+
+<h2>Почему банк и бухгалтер не дают реальной картины</h2>
+
+<p>Банк показывает только моментный слепок: сколько лежит сейчас, кто заплатил сегодня, что нужно отправить прямо сейчас. Но банк не отвечает на вопросы: где у вас заморожен кэш, какие клиенты опасно просрочены, какие проекты убыточны, хватит ли денег через две недели, если один крупный клиент сдвинет оплату</p>
+
+<p>Бухгалтер нужен — но его задача не управлять вашим будущим. Его задача — корректно закрыть прошлое: документы, налоги, отчётность. Если вы ждёте, что бухгалтер ответит на вопрос «почему я много работаю, а свободных денег мало?», вы ждёте не того от не того человека</p>
+
+<p>Штатный финдиректор — 200–300 тысяч ₽ в месяц по Москве. Для компании с оборотом 10 миллионов это не вариант</p>
+
+<p>В результате в вашем бизнесе нет человека, который каждое утро смотрит в три цифры: сколько заработали вчера, сколько должны поставщикам, сколько получат в ближайшие 14 дней</p>
+
+<p><strong>Без этих трёх цифр вы не управляете бизнесом. Вы тушите последствия.</strong></p>
+
+<h2>Где на самом деле утекают деньги</h2>
+
+<p>Самая опасная часть: утечки почти никогда не выглядят как катастрофа. Они выглядят как бытовой мусор</p>
+
+<ul>
+  <li>Переплаты поставщикам — никто не сверяет закрывающие документы с актами</li>
+  <li>Склад — материалы списали в производство, но они лежат во втором цеху; в следующем квартале заплатите снова</li>
+  <li>Дебиторка с просрочкой 60+ дней — менеджер «стесняется позвонить»</li>
+  <li>Налоговая переплата при УСН — никто не следит за попадающими в базу документами</li>
+  <li>Скидки без лимита — отдел продаж раздаёт их, не считая маржу в моменте</li>
+</ul>
+
+<p>По отдельности — ерунда. Вместе — причина, почему собственник при нормальной выручке живёт в режиме постоянного напряжения</p>
+
+<p>Средняя невидимая утечка по клиентам Finmary — 220 000 ₽ в месяц. Это 2,64 млн ₽ в год. Что такое 2,64 млн ₽ для МСБ — это найм сильного сотрудника, запас ликвидности, возможность расти без паники. Деньги, которых вам потом не хватает в самый неудобный момент</p>
+
+<p>Эти деньги у вас не «где-то потерялись». Они почти всегда лежат в понятных местах. Просто вы туда не смотрите системно</p>
+
+<div class="cta-block">
+  <a href="#zapis" class="cta-button">Проверить, где у меня лежат эти деньги <span class="arrow"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5"/></svg></span></a>
+  <span class="cta-sub">30–40 минут · бесплатно · с письменным резюме</span>
+</div>
+
+<h2>Как проходит диагностика</h2>
+
+<p>Диагностика — это 30–40 минут по видеосвязи. Живой разговор по вашему бизнесу и вашим цифрам</p>
+
+<h3>Шаг 1. Собираем контекст</h3>
+<p>Вы рассказываете: нишу, оборот, команду, что тревожит больше всего. Идеальная подготовка не нужна — если помните цифры только примерно, этого достаточно</p>
+
+<h3>Шаг 2. Смотрим три ключевые зоны</h3>
+<p>Я провожу вас по трём срезам, где у МСБ чаще всего лежат потери: структура расходов, оборачиваемость (дебиторка, склад, авансы, зависшие деньги), реальная маржинальность продуктов и направлений</p>
+
+<h3>Шаг 3. Показываю, где вероятнее всего утекают деньги</h3>
+<p>К концу встречи вы получаете 2–3 главные гипотезы, оценку в деньгах и один конкретный следующий шаг. Не абстракцию «надо навести порядок», а рабочий ход: что проверить, у кого запросить цифры, где пересчитать, где остановить потери</p>
+
+<h3>Шаг 4. Письменное резюме</h3>
+<p>В течение 24 часов — короткий документ: что нашли, где утечки, что делать дальше. Можете внедрять сами, обсуждать с командой, возвращаться позже. Это ваш документ</p>
+
+<h2>Что находим за 30 минут: три реальных случая</h2>
+
+<div class="cases">
+  <div class="case">
+    <div class="case-head">Агентство контекстной рекламы · 11 млн ₽/мес · 17 человек</div>
+    <p>22% проектов убыточны на уровне ФОТ: ставки выросли, себестоимость не пересматривали</p>
+    <div class="case-result">Возврат 310 000 ₽/мес</div>
+    <p class="step"><strong>Первый шаг:</strong> пересчитать 6 проектов до конца недели. Пошли делать сами</p>
+  </div>
+  <div class="case">
+    <div class="case-head">Частная клиника · 2 филиала · 28 сотрудников</div>
+    <p>Одинаковые расходники покупались у разных поставщиков по ценам, отличающимся на 23%</p>
+    <div class="case-result">Разница 94 000 ₽/мес</div>
+    <p class="step"><strong>Первый шаг:</strong> единый прайс-лист и контроль закупок</p>
+  </div>
+  <div class="case">
+    <div class="case-head">Производство металлоконструкций · 34 человека</div>
+    <p>В дебиторке крупнейшей сети висело 4,7 млн ₽ с просрочкой 90+ дней. Отдел продаж «не решался звонить»</p>
+    <div class="case-result">Вернули 3,2 млн за 18 дней</div>
+    <p class="step"><strong>Первый шаг:</strong> личный звонок собственника</p>
+  </div>
+</div>
+
+<p>Деньги почти никогда не исчезают магически. Они лежат в управленческой слепоте</p>
+
+<div class="cta-block">
+  <a href="#zapis" class="cta-button">Хочу такой же разбор по своему бизнесу <span class="arrow"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5"/></svg></span></a>
+  <span class="cta-sub">30–40 минут · бесплатно · с письменным резюме</span>
+</div>
+
+<h2>Это не воронка в продажу</h2>
+
+<p>После встречи у вас остаётся результат — даже если вы ничего не купите. Это принцип. Нормальный итог диагностики: вы увидели проблему, поняли цену проблемы, получили первый шаг и дальше идёте делать сами</p>
+
+<h3>Три сценария после встречи:</h3>
+<ul>
+  <li><strong>Идёте делать сами.</strong> Самый частый вариант. Берёте резюме, делаете 1–3 шага, возвращаетесь позже по желанию</li>
+  <li><strong>Понимаем, что нужен другой специалист.</strong> Например, налоговый консультант или операционный руководитель. Скажу об этом прямо и подскажу, куда идти. Это каждая пятая диагностика</li>
+  <li><strong>Идём глубже.</strong> Если задача масштабнее — обсуждаем практикум, сопровождение или формат внешнего финдиректора. Но только после того, как посмотрели на цифры. Не до</li>
+</ul>
+
+<h2>Кому особенно нужна эта диагностика</h2>
+<p>Вам, если:</p>
+<ul>
+  <li>выручка есть, а ясности по прибыли нет</li>
+  <li>деньги заходят, но свободного кэша постоянно мало</li>
+  <li>бухгалтер есть, а управленческой картины нет</li>
+  <li>дебиторка, склад, скидки и маржа живут каждый своей жизнью</li>
+  <li>решения принимаются скорее по ощущению, чем по цифрам</li>
+  <li>вы устали быть человеком, который всё время что-то закрывает</li>
+</ul>
+<p>И особенно — если вы давно чувствуете, что проблема уже не в продажах, а в том, что деньги внутри бизнеса ведут себя непрозрачно</p>
+
+<h3>Кому не нужно</h3>
+<ul>
+  <li>вы хотите «просто послушать что-нибудь полезное»</li>
+  <li>нет готовности смотреть на цифры честно</li>
+  <li>вы ждёте, что кто-то решит всё за вас без вашего участия</li>
+  <li>вам сейчас нужна иллюзия, что «и так нормально»</li>
+</ul>
+
+<h2>Четыре вопроса, которые останавливают — и честный ответ на каждый</h2>
+
+<div class="qa">
+  <div class="qa-item">
+    <div class="qa-q">«Бесплатная диагностика — это скрытая продажа»</div>
+    <p class="qa-a">В резюме, которое вы получите после встречи, будут конкретные шаги, которые можно сделать без меня и без моих продуктов. По статистике последних 12 месяцев: 43% людей после диагностики идут делать сами. Я считаю это успехом</p>
+  </div>
+  <div class="qa-item">
+    <div class="qa-q">«У меня уже есть бухгалтер»</div>
+    <p class="qa-a">Я не заменяю бухгалтера. Бухучёт и управленческий учёт — два разных инструмента. Бухучёт отвечает государству за то, что было. Управленческий — отвечает вам за то, что будет. На диагностике мы смотрим на цифры, которые бухгалтер в принципе не обязан вам показывать</p>
+  </div>
+  <div class="qa-item">
+    <div class="qa-q">«У меня нет точных цифр под рукой»</div>
+    <p class="qa-a">Для первой встречи достаточно порядков: выручка примерно такая, основные расходы — зарплата, сырьё, аренда, в дебиторке висит примерно столько. Мы не делаем аудит — мы ищем, где вероятнее всего проседает</p>
+  </div>
+  <div class="qa-item">
+    <div class="qa-q">«Я маленький бизнес — мне рано»</div>
+    <p class="qa-a">На обороте 10 млн каждая утечка в 100 тысяч — это 1% выручки, и вы её чувствуете кожей. Клиенты, которые пришли ко мне на 10 миллионах, через год были на 18 — потому что знали границы прочности и понимали, что можно инвестировать</p>
+  </div>
+</div>
+
+<h2>Следующий шаг</h2>
+
+<figure class="figure">
+  <img src="images/05-map.jpg" alt="Финал — фигура у окна на рассвете, на столе блокнот с тремя точками-маркерами">
+</figure>
+
+<p>Андрей пришёл на диагностику на следующий день. За 30 минут нашли три утечки: переплаты поставщикам на 188 тысяч в месяц, дебиторка с просрочкой 73 дня на 2,1 миллиона, материалы, которые числились списанными, но лежали во втором цеху на 640 тысяч</p>
+
+<p>Вечером того же дня он впервые за три года лёг спать, не открывая банк</p>
+
+<p>Не потому что деньги вдруг появились. А потому что у него появилась карта: три точки, куда смотреть, три хода на текущую неделю. Он перестал быть пассажиром</p>
+
+<p>У вас эта карта будет другой — другая ниша, другая выручка, другие слабые места. Но способ её получить один: дать 30 минут человеку, который уже видел 40 таких компаний</p>
+
+<p>Если вы дочитали до этого места — значит, тема попала</p>
+
+<p><strong>Каждый месяц промедления — это в среднем 220 000 ₽, которые уходят туда, куда вы не смотрите. Диагностика занимает 30 минут.</strong></p>
+
+</div>
+</article>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final-cta" id="zapis">
+  <div style="max-width: 720px; margin: 0 auto;">
+    <h2>30 минут. Без оплаты.<br>С письменным резюме на выходе.</h2>
+    <p>⚠ Я провожу не больше 10 диагностик в месяц. Если вы читаете это — скорее всего, места ещё есть. Но не факт, что завтра</p>
+    <a href="#" class="cta-button" style="font-size: 17px; padding: 22px 44px;">Записаться на диагностику <span class="arrow"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M6.5 2.5L10 6l-3.5 3.5"/></svg></span></a>
+    <p style="margin-top: 32px; font-size: 14px; color: rgba(255,255,255,0.5);">30–40 минут по видеосвязи. Без оплаты. Без давления</p>
+  </div>
+</section>
+
+
+</body>
+</html>
