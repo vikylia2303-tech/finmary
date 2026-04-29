@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Спасибо! Заявка отправлена — Finmary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1F3B; --cream: #F4E4BC; --paper: #FAF7F2;
+    --ink: #1A1A1A; --ink-soft: #4B4B4B; --grey: #6B7280;
+    --gold: #C9A86A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--navy); color: #fff;
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    padding: 40px 24px; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 520px; width: 100%; text-align: center; }
+  .check {
+    width: 64px; height: 64px;
+    border: 2px solid var(--gold); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 28px; color: var(--gold);
+  }
+  h1 {
+    font-family: 'Playfair Display', serif; font-weight: 600;
+    font-size: clamp(28px, 4vw, 36px); line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  h1 .hl { color: var(--cream); font-style: italic; }
+  .sub {
+    font-size: 16px; line-height: 1.5;
+    color: rgba(255,255,255,0.75); margin-bottom: 36px;
+  }
+  .messengers {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    margin-bottom: 24px;
+  }
+  .msg-btn {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 10px; padding: 24px 16px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    color: #fff; text-decoration: none;
+    transition: background 0.2s, border-color 0.2s, transform 0.18s;
+    cursor: pointer;
+  }
+  .msg-btn:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+  .msg-btn .icon {
+    width: 40px; height: 40px;
+    background: var(--gold); color: var(--navy);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 14px;
+  }
+  .msg-btn .label {
+    font-weight: 600; font-size: 16px;
+  }
+  .msg-btn .handle {
+    font-size: 13px; color: rgba(255,255,255,0.6);
+  }
+  .home-link {
+    display: inline-block; margin-top: 32px;
+    color: rgba(255,255,255,0.55); text-decoration: none;
+    font-size: 13px; border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 2px;
+  }
+  .home-link:hover { color: var(--gold); border-color: var(--gold); }
+  @media (max-width: 480px) {
+    .messengers { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="check">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"/>
+    </svg>
+  </div>
+  <h1>Спасибо, что оставили заявку!<br><span class="hl">Свяжусь с вами в ближайшее время</span></h1>
+  <p class="sub">Чтобы ускорить — напишите мне в удобный мессенджер. Так договоримся о времени быстрее</p>
+
+  <div class="messengers">
+    <a href="https://t.me/findir_nadzene" target="_blank" rel="noopener" class="msg-btn">
+      <div class="icon">TG</div>
+      <div class="label">Telegram</div>
+      <div class="handle">@findir_nadzene</div>
+    </a>
+    <a href="https://max.ru/+79275697787" target="_blank" rel="noopener" class="msg-btn">
+      <div class="icon">МАХ</div>
+      <div class="label">МАХ</div>
+      <div class="handle">+7 927 569-77-87</div>
+    </a>
+  </div>
+
+  <a href="/" class="home-link">← вернуться к статье</a>
+</div>
+</body>
+</html>
