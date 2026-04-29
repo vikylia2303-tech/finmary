@@ -88,15 +88,65 @@
     content: ''; position: absolute; left: 0; top: 12px;
     width: 12px; height: 1px; background: var(--gold);
   }
-  .message-card {
-    background: var(--navy); color: #fff; border-radius: 4px;
-    padding: 28px 32px; margin: 32px 0;
-    font-size: 16px; line-height: 1.6;
-    border-left: 3px solid var(--gold);
+  /* Chat-like message card (mobile messenger look) */
+  .chat-card {
+    max-width: 480px; margin: 32px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px -4px rgba(11,31,59,0.18), 0 2px 6px rgba(0,0,0,0.06);
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.04);
   }
-  .message-card .from {
-    font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 14px; font-weight: 500;
+  .chat-header {
+    background: linear-gradient(180deg, #2A3B5C 0%, #1E2D49 100%);
+    color: #fff;
+    padding: 12px 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .chat-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, #C9A86A 0%, #A88848 100%);
+    display: flex; align-items: center; justify-content: center;
+    color: #0B1F3B; font-weight: 700; font-size: 17px;
+    flex-shrink: 0;
+    font-family: 'Inter', sans-serif;
+  }
+  .chat-info { flex: 1; min-width: 0; }
+  .chat-name {
+    font-weight: 600; font-size: 15px; color: #fff;
+    line-height: 1.2;
+  }
+  .chat-status {
+    font-size: 12px; color: rgba(255,255,255,0.55);
+    margin-top: 2px;
+  }
+  .chat-status .dot {
+    display: inline-block; width: 6px; height: 6px;
+    background: #4ade80; border-radius: 50%;
+    margin-right: 5px; vertical-align: 1px;
+  }
+  .chat-body {
+    background: #ECE5DA;
+    padding: 18px 14px 16px;
+    min-height: 80px;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.4) 0, transparent 25%),
+      radial-gradient(circle at 80% 60%, rgba(201,168,106,0.08) 0, transparent 30%);
+  }
+  .chat-bubble {
+    background: #fff;
+    border-radius: 14px 14px 14px 4px;
+    padding: 10px 14px 8px;
+    max-width: 90%;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.06);
+    font-size: 15px; line-height: 1.5;
+    color: #1a1a1a;
+    position: relative;
+  }
+  .chat-bubble .time {
+    display: block; text-align: right;
+    font-size: 11px; color: #94a3b8;
+    margin-top: 4px; font-weight: 500;
   }
   .stat {
     display: block; font-family: 'Inter', sans-serif;
@@ -151,37 +201,42 @@
   .cta-text { font-size: 15px; margin-bottom: 22px; color: rgba(255,255,255,0.8); }
   .cta-warning-icon { color: var(--gold); font-weight: 600; margin-right: 8px; }
   .cta-button {
-    display: inline-flex !important; align-items: center; gap: 14px;
-    background: linear-gradient(180deg, #D4B574 0%, #C9A86A 50%, #B89758 100%) !important;
+    display: inline-flex !important; align-items: center; gap: 12px;
+    background: linear-gradient(135deg, #F2C66E 0%, #E0AE5A 100%) !important;
     color: #0B1F3B !important; text-decoration: none !important;
-    padding: 18px 30px 18px 32px;
-    font-weight: 600 !important; font-size: 15px;
-    letter-spacing: 0.01em; border-radius: 4px;
+    padding: 20px 32px;
+    font-weight: 700 !important; font-size: 16px;
+    letter-spacing: 0.005em; border-radius: 999px;
     box-shadow:
-      0 1px 0 0 rgba(255,255,255,0.4) inset,
-      0 -1px 0 0 rgba(0,0,0,0.08) inset,
-      0 6px 20px -4px rgba(201,168,106,0.45),
-      0 2px 6px -1px rgba(0,0,0,0.15);
-    transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+      0 12px 30px -8px rgba(232, 174, 90, 0.65),
+      0 4px 10px -2px rgba(0,0,0,0.12);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.3s ease,
+                filter 0.2s ease;
     cursor: pointer; border: none;
-    position: relative; overflow: hidden;
     font-family: 'Inter', sans-serif;
+    animation: ctaPulse 2.4s ease-in-out infinite;
   }
-  .cta-button::before {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.45) 50%, transparent 70%);
-    transform: translateX(-100%); transition: transform 0.6s ease;
+  @keyframes ctaPulse {
+    0%, 100% { box-shadow: 0 12px 30px -8px rgba(232,174,90,0.55), 0 4px 10px -2px rgba(0,0,0,0.12); }
+    50% { box-shadow: 0 16px 38px -6px rgba(232,174,90,0.85), 0 4px 10px -2px rgba(0,0,0,0.12); }
   }
-  .cta-button:hover { transform: translateY(-2px); filter: brightness(1.05); }
-  .cta-button:hover::before { transform: translateX(100%); }
+  .cta-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    filter: brightness(1.06);
+    box-shadow:
+      0 22px 44px -8px rgba(232,174,90,0.85),
+      0 6px 14px -2px rgba(0,0,0,0.18) !important;
+    animation-play-state: paused;
+  }
+  .cta-button:active { transform: translateY(-1px) scale(1); }
   .cta-button .arrow {
-    display: inline-flex; width: 22px; height: 22px;
-    align-items: center; justify-content: center;
-    background: var(--navy); border-radius: 50%; color: var(--gold);
-    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: #0B1F3B;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
-  .cta-button:hover .arrow { transform: translateX(4px) scale(1.08); }
-  .cta-button .arrow svg { width: 11px; height: 11px; }
+  .cta-button:hover .arrow { transform: translateX(5px); }
+  .cta-button .arrow svg { width: 16px; height: 16px; stroke-width: 2.4; }
   .cta-sub {
     display: block; margin-top: 12px; font-size: 12px;
     color: rgba(255,255,255,0.55); letter-spacing: 0.02em;
@@ -440,9 +495,20 @@
 
 <p>Он написал мне в 23:15. Не потому что искал курс или программу. Просто больше было некуда</p>
 
-<div class="message-card">
-  <div class="from">Сообщение в 23:15</div>
-  Мария, я в четвёртый раз за вечер смотрю в банк. Куда ушли полтора миллиона — не понимаю. Бухгалтер говорит, всё сходится. Менеджер говорит, загрузка рекордная. А я снова закрываю кассовый разрыв личными деньгами. Это нормально?
+<div class="chat-card">
+  <div class="chat-header">
+    <div class="chat-avatar">А</div>
+    <div class="chat-info">
+      <div class="chat-name">Андрей</div>
+      <div class="chat-status"><span class="dot"></span>был в сети в 23:15</div>
+    </div>
+  </div>
+  <div class="chat-body">
+    <div class="chat-bubble">
+      Мария, я в четвёртый раз за вечер смотрю в банк. Куда ушли полтора миллиона — не понимаю. Бухгалтер говорит, всё сходится. Менеджер говорит, загрузка рекордная. А я снова закрываю кассовый разрыв личными деньгами. Это нормально?
+      <span class="time">23:15</span>
+    </div>
+  </div>
 </div>
 
 <p>Нет. Это ненормально. И не только у Андрея — у большинства собственников деньги устроены примерно так. На ощупь</p>
@@ -678,7 +744,7 @@
     <button type="button" class="popup-close" onclick="closePopup()" aria-label="Закрыть">×</button>
     <div class="popup-title">Запись на диагностику</div>
     <div class="popup-sub">Оставьте имя и телефон. Свяжусь с вами в течение рабочего дня, чтобы согласовать время</div>
-    <form id="leadForm" action="https://formsubmit.co/vikylia.2303@gmail.com" method="POST">
+    <form id="leadForm" action="https://formsubmit.co/Udacha919@yandex.ru" method="POST">
       <input type="hidden" name="_next" value="https://finmary.vercel.app/thank-you.html">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_subject" value="Заявка на диагностику Finmary">
